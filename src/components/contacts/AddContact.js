@@ -30,12 +30,6 @@ class AddContact extends Component {
       return;
     }
 
-    const newContact = {
-      name,
-      email,
-      phone
-    };
-
     //// SUBMIT CONTACT ////
 
     // Clear State
