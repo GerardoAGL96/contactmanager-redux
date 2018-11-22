@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/TextInputGroup';
-
+import { UPDATE_CONTACT } from './../../redux/actions/types';
+import { connect } from 'react-redux';
 class EditContact extends Component {
   state = {
     name: '',
@@ -30,10 +31,10 @@ class EditContact extends Component {
       return;
     }
 
-    // const { id } = this.props.match.params;
+    const { id } = this.props.match.params;
 
-    //// UPDATE CONTACT ////
-
+    this.props.updateContact({id, name, email, phone});
+    
     // Clear State
     this.setState({
       name: '',
@@ -92,4 +93,8 @@ class EditContact extends Component {
   }
 }
 
-export default EditContact;
+const mapDispatchToProps = (dispatch) => ({
+  updateContact: (contact) => dispatch({type: UPDATE_CONTACT, payload: contact})
+});
+
+export default connect(null, mapDispatchToProps)(EditContact);
