@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/TextInputGroup';
-import { UPDATE_CONTACT } from './../../redux/actions/types';
+import { updateContact, deleteContact } from './../../redux/actions/contacts';
 import { connect } from 'react-redux';
 class EditContact extends Component {
   state = {
@@ -94,7 +94,7 @@ class EditContact extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  updateContact: (contact) => dispatch({type: UPDATE_CONTACT, payload: contact})
+  updateContact: (contact) => dispatch(updateContact(contact))
 });
 
 export default connect(null, mapDispatchToProps)(EditContact);

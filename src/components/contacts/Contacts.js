@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Contact from './Contact';
 import { connect } from 'react-redux';
-import { GET_CONTACTS, DELETE_CONTACT } from '../../redux/actions/types';
+import { getContacts, deleteContact } from './../../redux/actions/contacts';
 import PropTypes from 'prop-types'
 
 class Contacts extends Component {
@@ -35,8 +35,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getContacts: () => dispatch({type: GET_CONTACTS}),
-  deleteContact: (id) => dispatch({type: DELETE_CONTACT, payload: {id: id}})
+  getContacts: () => dispatch(getContacts),
+  deleteContact: (id) => dispatch(deleteContact(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

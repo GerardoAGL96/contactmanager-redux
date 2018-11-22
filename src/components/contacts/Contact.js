@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { DELETE_CONTACT } from './../../redux/actions/types';
 
 class Contact extends Component {
   state = {
@@ -13,7 +11,7 @@ class Contact extends Component {
     this.props.deleteContact(id);
   };
 
-  render() {
+  render () {
     const { id, name, email, phone } = this.props.contact;
     const { showContactInfo } = this.state;
 
